@@ -1,0 +1,6 @@
+--prefix=/usr/local/php7
+--with-config-file-path=/usr/local/php7/etc
+--with-config-file-scan-dir=/usr/local/php7/etc/conf.d
+--disable-cgi
+--enable-fpm
+--disable-all
