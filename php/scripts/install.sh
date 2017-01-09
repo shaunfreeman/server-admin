@@ -13,10 +13,6 @@ mkdir "/usr/local/php$SELECTED_PHP_VERSION"
 source "$PHP_DIR/scripts/build.sh"
 
 (
-    if [[ "${ENABLE_EXTS[@]}" =~ "opcache" ]]; then
-        cp -v "$PHP_DIR/conf.d/opcache.ini" /usr/local/php7/etc/conf.d/10opcache.ini
-    fi
-
     # Create a directories for storing PHP
     mkdir -v "/usr/local/php$SELECTED_PHP_VERSION/etc/conf.d"
     mkdir -v "/usr/local/php$SELECTED_PHP_VERSION/lib/tmpfiles.d"
