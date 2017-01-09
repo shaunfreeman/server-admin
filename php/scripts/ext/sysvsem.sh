@@ -3,10 +3,8 @@
 # Author: Shaun Freeman <shaun@shaunfreeman.co.uk>
 # Date: 21/11/2016
 # Version: 1.0.0
-# Summery: Bash Script to configure the System V shared memory extension
+# Summery: Bash Script to configure the System V semaphore extension
 
-ask_question "System V shared memory [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "sysvsem" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-sysvsem")
 fi

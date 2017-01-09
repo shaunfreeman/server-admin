@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Character Type Extentions extension
 
-ask_question "Ctype [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "ctype" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-ctype")
 fi

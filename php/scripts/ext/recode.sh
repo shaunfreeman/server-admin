@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Recode extension
 
-ask_question "Recode [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "recode" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-recode")
     PHP_DEPS+=("recode-dev")
 fi

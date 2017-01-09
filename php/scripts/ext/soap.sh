@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Soap extension
 
-ask_question "Soap [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "soap" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-soap")
 fi

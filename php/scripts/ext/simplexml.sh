@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the SimpleXML extension
 
-ask_question "SimpleXML [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "simplexml" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-simplexml")
 fi

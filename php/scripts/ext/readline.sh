@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Readline extension
 
-ask_question "Readline [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "readline" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-readline")
     PHP_DEPS+=("libreadline-dev")
 fi

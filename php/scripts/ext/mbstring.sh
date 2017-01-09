@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Multibyte String extension
 
-ask_question "Mulibyte String [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "mbstring" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-mbstring")
 fi

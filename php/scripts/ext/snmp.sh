@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the SNMP extension
 
-ask_question "Mcrypt [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "snmp" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-snmp")
     PHP_DEPS+=("libsnmp-dev")
 fi

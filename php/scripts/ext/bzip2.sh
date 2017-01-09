@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the BZip2 extension
 
-ask_question "Bzip2 [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "bz2" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-bz2")
     PHP_DEPS+=('libbz2-dev')
 fi

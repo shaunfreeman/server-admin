@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the XML Extentions extension
 
-ask_question "XML [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "xml" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-xml")
 fi

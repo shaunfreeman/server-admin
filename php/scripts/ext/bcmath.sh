@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the BCMath extension
 
-ask_question "BCMath [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "bcmath" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-bcmath")
 fi

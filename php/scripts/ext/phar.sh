@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Phar extension
 
-ask_question "Phar [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "phar" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-phar")
 fi

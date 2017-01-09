@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Curl extension
 
-ask_question "Curl [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "curl" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-curl")
     PHP_DEPS+=('libcurl4-openssl-dev')
 fi

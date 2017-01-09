@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the PDO extension
 
-ask_question "PDO [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "pdo" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-pdo")
 fi

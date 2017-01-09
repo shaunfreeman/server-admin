@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to disable phpdbg support
 
-ask_question "PHP Debugger (phpdbg) [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_SAPIS[@]}" =~ "phpdbg" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-phpdbg")
 fi

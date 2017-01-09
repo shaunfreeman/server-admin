@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the XML Writer extension
 
-ask_question "XML Writer [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "xmlwriter" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-xmlwriter")
 fi

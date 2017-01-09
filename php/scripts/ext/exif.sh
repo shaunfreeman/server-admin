@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Exif extension
 
-ask_question "Exif [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "exif" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-exif")
 fi

@@ -1,0 +1,20 @@
+
+PGDN	- Move down one page
+PGUP	- Move up one page
+DOWN	- Move down one line
+UP	- Move up one line
+DELETE	- Delete the current character
+BACKSPC	- Delete the previous character
+
+It does not do these:
+
+CTRL C	- Copy text
+CTRL V	- Paste text
+
+This editbox uses CTRL/V as a literal-next character.  You
+can enter TAB characters by first pressing CTRL/V then TAB. This
+example contains a few tab characters.
+
+It supports the mouse - but only for positioning in the editbox,
+or for clicking on buttons.  Your terminal (emulator) may support
+cut/paste.

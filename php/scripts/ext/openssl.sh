@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the OpenSSL extension
 
-ask_question "OpenSSL [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "openssl" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-openssl")
     PHP_DEPS+=("libssl-dev" "libsslcommon2-dev")
 fi

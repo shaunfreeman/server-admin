@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Pspell extension
 
-ask_question "Pspell [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "pspell" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-pspell")
     PHP_DEPS+=("libpspell-dev")
 fi

@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Mcrypt extension
 
-ask_question "Mcrypt [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "mcrypt" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-mcrypt")
     PHP_DEPS+=("mcrypt" "libmcrypt-dev")
 fi

@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the libXML Extentions extension
 
-ask_question "libXML [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "libxml" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-libxml")
 else
     PHP_DEPS+=('libxml2-dev')

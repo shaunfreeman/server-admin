@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to enable FPM support
 
-ask_question "FPM [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_SAPIS[@]}" =~ "fpm" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-fpm")
 fi

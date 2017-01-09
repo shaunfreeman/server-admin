@@ -5,27 +5,26 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the MySQL Extentions extension
 
-ask_question "MySQL [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "mysql" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-mysqlnd")
 
-    ask_question "MySQL Improved [y/N]"
-
-    if [ "$INSTALL_EXTENSION" == "y" ]; then
+    dialog --defaultno --yesno "MySQL Improved" 10 60
+    if [ "$?" == 0 ]; then
         PHP_CONFIGURE_OPTIONS+=("--with-mysqli")
     fi
 
-    ask_question "PDO MySQL [y/N]"
-
-    if [ "$INSTALL_EXTENSION" == "y" ]; then
+    dialog --defaultno --yesno "PDO MySQL" 10 60
+    if [ "$?" == 0 ]; then
         PHP_CONFIGURE_OPTIONS+=("--with-pdo-mysql")
     fi
 
     MYSQL_DEP=($(dpkg -l | grep -Po "libmysqlclient-dev"))
 
     if [ ! "$MYSQL_DEP" ]; then
-        apt-get install libmysqlclient-dev
+        dialog \
+            --title "Adding MySQL Dependencies" \
+            --prgbox "apt-get install -y libmysqlclient-dev" 20 100
+
     fi
 
     MYSQL_SOCKET=($(mysql_config --socket))

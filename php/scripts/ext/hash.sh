@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Hash extension
 
-ask_question "Hash [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "hash" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-hash")
 fi

@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to disable CLI support
 
-ask_question "CLI [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_SAPIS[@]}" =~ "cli" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-cli")
 fi

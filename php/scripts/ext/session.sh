@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Session extension
 
-ask_question "Session [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "session" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-session")
 fi

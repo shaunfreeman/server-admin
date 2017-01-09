@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the POSIX extension
 
-ask_question "POSIX [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "posix" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-posix")
 fi

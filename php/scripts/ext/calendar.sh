@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Calendar extension
 
-ask_question "Calendar [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "calendar" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-calendar")
 fi

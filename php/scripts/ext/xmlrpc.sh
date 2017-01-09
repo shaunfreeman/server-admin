@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the XML-RPC extension
 
-ask_question "XML-RPC [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "xmlrpc" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-xmlrpc")
 fi

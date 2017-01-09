@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the GetText extension
 
-ask_question "GetText [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "dettext" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-gettext")
     PHP_DEPS+=('gettext')
 fi

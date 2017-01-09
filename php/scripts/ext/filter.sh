@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Filter extension
 
-ask_question "Filter [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "filter" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-filter")
 fi

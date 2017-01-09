@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the XML Reader extension
 
-ask_question "XML Reader [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "xmlreader" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-xmlreader")
 fi

@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to disable CGI support
 
-ask_question "CGI [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_SAPIS[@]}" =~ "cgi" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-cgi")
 fi

@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the System V shared memory extension
 
-ask_question "System V shared memory [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "sysvshm" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-sysvshm")
 fi

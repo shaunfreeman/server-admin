@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the JSON extension
 
-ask_question "JSON [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "json" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-json")
 fi

@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the SQLite Extentions extension
 
-ask_question "SQLite [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "sqlite" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--without-sqlite3")
 
     MATCH=0
@@ -24,9 +22,8 @@ if [ "$INSTALL_EXTENSION" == "n" ]; then
 
 else
 
-    ask_question "PDO SQLite [Y/n]"
-
-    if [ "$INSTALL_EXTENSION" == "n" ]; then
+    dialog --defaultno --yesno "PDO SQLite" 10 60
+    if [ "$?" == 1 ]; then
         PHP_CONFIGURE_OPTIONS+=("--without-pdo-sqlite")
     fi
 

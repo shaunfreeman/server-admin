@@ -5,9 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Intl extension
 
-ask_question "Intl [y/N]"
-
-if [ "$INSTALL_EXTENSION" == "y" ]; then
+if [[ "${ENABLE_EXTS[@]}" =~ "intl" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--enable-intl")
     PHP_DEPS+=('libicu-dev')
 fi

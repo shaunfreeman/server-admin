@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the OPcache extension
 
-ask_question "OPcache [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "opcache" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--disable-opcache")
 fi

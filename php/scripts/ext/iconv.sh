@@ -5,8 +5,6 @@
 # Version: 1.0.0
 # Summery: Bash Script to configure the Iconv extension
 
-ask_question "Iconv [Y/n]"
-
-if [ "$INSTALL_EXTENSION" == "n" ]; then
+if [[ ! "${ENABLE_EXTS[@]}" =~ "iconv" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--without-iconv")
 fi
