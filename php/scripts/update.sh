@@ -58,3 +58,5 @@ fi
 source "$PHP_DIR/scripts/build.sh"
 
 systemctl restart "php$SELECTED_PHP_VERSION-fpm"
+
+source "$PHP_DIR/php-menu.sh"
