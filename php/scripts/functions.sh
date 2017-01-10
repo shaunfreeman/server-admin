@@ -54,7 +54,7 @@ select_version() {
                     SELECTED_VERSION_OPTIONS+=("$VERSION" "PHP $VERSION" off)
                 fi
                 ;;
-            "uninstall")
+            "uninstall" | "update")
                 if [ "$PHP_INSTALLED" ]; then
                     SELECTED_VERSION_OPTIONS+=("$VERSION" "PHP $VERSION" off)
                 fi
@@ -71,7 +71,20 @@ select_version() {
     )
     EXIT_STATUS=$?
 
+    if [ "$1" == "install" ] || [ "$1" == "update" ]; then
+        PHP_CONFIGURE_OPTIONS=(
+            "--prefix=/usr/local/php$SELECTED_PHP_VERSION" \
+            "--with-config-file-path=/usr/local/php$SELECTED_PHP_VERSION/etc" \
+            "--with-config-file-scan-dir=/usr/local/php$SELECTED_PHP_VERSION/etc/conf.d"
+        )
+    fi
+
     case "$EXIT_STATUS" in
+        "$DIALOG_OK")
+            if [[ ! "$SELECTED_PHP_VERSION" ]]; then
+                source "$PHP_DIR/php-menu.sh"
+            fi
+            ;;
         "$DIALOG_CANCEL" | "$DIALOG_ESC")
             source "$PHP_DIR/php-menu.sh"
             ;;

@@ -10,6 +10,9 @@ source "$PHP_DIR/scripts/prepare-build.sh"
 
 mkdir "/usr/local/php$SELECTED_PHP_VERSION"
 
+sapi_options
+extension_options
+
 source "$PHP_DIR/scripts/build.sh"
 
 (
@@ -42,10 +45,9 @@ source "$PHP_DIR/scripts/build.sh"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phpize" "/usr/local/bin/phpize$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/sbin/php-fpm" "/usr/local/sbin/php$SELECTED_PHP_VERSION-fpm"
 
-    systemctl daemon-reload
-    systemctl enable "php$SELECTED_PHP_VERSION-fpm"
-
 ) | dialog \
     --title "Installing PHP" \
     --programbox 20 100
 
+systemctl daemon-reload
+systemctl enable "php$SELECTED_PHP_VERSION-fpm"

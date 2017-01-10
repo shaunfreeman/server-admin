@@ -73,12 +73,7 @@ cd php-src
 LATEST_VERSION=$(check_version "^php-$SELECTED_PHP_VERSION.[0-9]*$")
 PHP_INSTALLED=$(command -v "php$SELECTED_PHP_VERSION")
 
-if [ "$PHP_INSTALLED" ]; then
-    CURRENT_VERSION=($("php$SELECTED_PHP_VERSION" -version | grep -Po "^PHP ([0-9]*.[0-9]*.[0-9]*)" | tr " " -))
-fi
-
 PHP_VERSION="${LATEST_VERSION^^}"
 
 RESULT=$(git checkout --progress "$PHP_VERSION")
-
 infobox "\n$RESULT" 5 60

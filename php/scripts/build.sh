@@ -7,16 +7,6 @@
 NO_CPU=($(grep -c ^processor /proc/cpuinfo))
 MAKE_OPTIONS="-j$NO_CPU"
 CONFIGURE_OPTIONS_FILE="$PHP_DIR/$SELECTED_PHP_VERSION-configure-options.txt"
-PHP_CONFIGURE_OPTIONS=()
-
-PHP_CONFIGURE_OPTIONS+=(
-    "--prefix=/usr/local/php$SELECTED_PHP_VERSION" \
-    "--with-config-file-path=/usr/local/php$SELECTED_PHP_VERSION/etc" \
-    "--with-config-file-scan-dir=/usr/local/php$SELECTED_PHP_VERSION/etc/conf.d"
-)
-
-sapi_options
-extension_options
 
 dialog --infobox "\nPreparing to build $PHP_VERSION" 5 45
 
