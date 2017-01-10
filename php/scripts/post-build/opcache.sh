@@ -6,5 +6,5 @@
 # Summery: Bash Script to configure the OPcache extension
 
 if [[ "${ENABLE_EXTS[@]}" =~ "opcache" ]]; then
-    cp -v "$PHP_DIR/conf.d/opcache.ini" /usr/local/php7/etc/conf.d/10opcache.ini
+    cp -v "$PHP_DIR/conf.d/opcache.ini" "/usr/local/php$SELECTED_PHP_VERSION/etc/conf.d/10opcache.ini"
 fi

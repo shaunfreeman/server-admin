@@ -16,8 +16,6 @@ extension_options
 source "$PHP_DIR/scripts/build.sh"
 
 (
-    # Create a directories for storing PHP
-    mkdir -v "/usr/local/php$SELECTED_PHP_VERSION/etc/conf.d"
     mkdir -v "/usr/local/php$SELECTED_PHP_VERSION/lib/tmpfiles.d"
 
     mv -v "/usr/local/php$SELECTED_PHP_VERSION/etc/php-fpm.conf.default" "/usr/local/php$SELECTED_PHP_VERSION/etc/php-fpm.conf"
@@ -38,12 +36,8 @@ source "$PHP_DIR/scripts/build.sh"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/peardev" "/usr/local/bin/peardev$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/pecl" "/usr/local/bin/pecl$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phar" "/usr/local/bin/phar$SELECTED_PHP_VERSION"
-    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/php" "/usr/local/bin/php$SELECTED_PHP_VERSION"
-    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/php-cgi" "/usr/local/bin/php-cgi$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/php-config" "/usr/local/bin/php-config$SELECTED_PHP_VERSION"
-    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phpdbg" "/usr/local/bin/phpdbg$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phpize" "/usr/local/bin/phpize$SELECTED_PHP_VERSION"
-    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/sbin/php-fpm" "/usr/local/sbin/php$SELECTED_PHP_VERSION-fpm"
 
 ) | dialog \
     --title "Installing PHP" \
