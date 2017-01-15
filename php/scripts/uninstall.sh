@@ -4,7 +4,7 @@
 # Date: 21/11/2016
 # Summery: Bash Script to remove the latest PHP
 
-select_version "uninstall"
+select_version
 
 (
     systemctl stop "php$SELECTED_PHP_VERSION-fpm"

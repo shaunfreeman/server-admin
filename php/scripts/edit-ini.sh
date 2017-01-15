@@ -4,7 +4,7 @@
 # Date: 21/11/2016
 # Summery: Bash Script to edit PHP ini file
 
-select_version "edit"
+select_version
 
 INPUT="/etc/php/php$SELECTED_PHP_VERSION/php.ini"
 

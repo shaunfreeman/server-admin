@@ -54,7 +54,7 @@ select_version() {
                     SELECTED_VERSION_OPTIONS+=("$VERSION" "PHP $VERSION" off)
                 fi
                 ;;
-            "uninstall" | "update" | "edit")
+            *)
                 if [ "$PHP_INSTALLED" ]; then
                     SELECTED_VERSION_OPTIONS+=("$VERSION" "PHP $VERSION" off)
                 fi

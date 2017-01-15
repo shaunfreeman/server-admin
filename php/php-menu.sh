@@ -29,7 +29,8 @@ else
         1 "Install PHP" \
         2 "Update PHP" \
         3 "Uninstall PHP" \
-        4 "Edit PHP INI File"
+        4 "Edit PHP INI File" \
+        5 "PHP-FPM Pools"
     )
     VERSIONS=$(printf ":%s " "${PHP_INSTALLED[@]}")
     BACK_TITLE+=" - PHP Version$VERSIONS"
@@ -40,7 +41,7 @@ OPTION=$(
     --backtitle "$BACK_TITLE" \
     --title "PHP Options" \
     --cancel-label "Back" \
-    --menu "Choose your option" 15 60 4 \
+    --menu "Choose your option" 15 60 10 \
     "${OPTION_ARRAY[@]}" \
      3>&1 1>&2 2>&3
 )
@@ -62,6 +63,7 @@ case "$EXIT_STATUS" in
             4)
                 source "$PHP_DIR/scripts/edit-ini.sh"
                 ;;
+            5) source "$PHP_DIR/scripts/pools.sh"
             esac
             ;;
     "$DIALOG_CANCEL" | "$DIALOG_ESC")
