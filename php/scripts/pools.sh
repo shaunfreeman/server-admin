@@ -4,10 +4,12 @@
 # Date: 21/11/2016
 # Summery: Bash Script to install/update/delete the PHP-FPM Pools
 
+select_version
+
 OPTION=$(
     dialog \
-    --backtitle "PHP-FPM Pools" \
-    --title "PHP-FPM Options" \
+    --backtitle "PHP-FPM $SELECTED_PHP_VERSION Pools" \
+    --title "PHP-FPM $SELECTED_PHP_VERSION Options" \
     --cancel-label "Back" \
     --menu "Choose your option" 15 60 4 \
     1 "Add Pool" \

@@ -4,8 +4,6 @@
 # Date: 21/11/2016
 # Summery: Bash Script to add PHP-FPM Pools
 
-select_version
-
 USER=""
 GROUP=""
 LISTEN="var/run/php-fpm.sock"
@@ -43,6 +41,6 @@ case "$EXIT_STATUS" in
             source "$PHP_DIR/scripts/pools.sh";
             ;;
     "$DIALOG_CANCEL" | "$DIALOG_ESC")
-        source "$PHP_DIR/scripts/pools.sh";
+        source "$PHP_DIR//php-menu.sh";
         ;;
 esac
