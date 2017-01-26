@@ -18,7 +18,7 @@ done
 
 printf "%s\n" "${PHP_CONFIGURE_OPTIONS[@]}" > "$CONFIGURE_OPTIONS_FILE"
 
-check_deps "${PHP_DEPS[@]}" | dialog --title "Checking Dependencies" \
+check_deps | dialog --title "Checking Dependencies" \
        --progressbox 20 100
 
 # start timing the build

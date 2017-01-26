@@ -18,8 +18,12 @@ source "$PHP_DIR/scripts/build.sh"
 (
     mkdir -v "/usr/local/php$SELECTED_PHP_VERSION/lib/tmpfiles.d"
 
+    if [ ! -d /etc/php ]; then
+        mkdir /etc/php
+    fi
+
     mv -v "/usr/local/php$SELECTED_PHP_VERSION/etc/php-fpm.conf.default" "/usr/local/php$SELECTED_PHP_VERSION/etc/php-fpm.conf"
-    cp -v "$PHP_DIR//src/php-src/php.ini-production" "/usr/local/php$SELECTED_PHP_VERSION/etc/php.ini"
+    cp -v "$PHP_DIR/src/php-src/php.ini-production" "/usr/local/php$SELECTED_PHP_VERSION/etc/php.ini"
     cp -v "$PHP_DIR/tempfiles.d/php-fpm.conf" "/usr/local/php$SELECTED_PHP_VERSION/lib/tmpfiles.d/php-fpm.conf"
     cp -v "$PHP_DIR/php-fpm-checkconf" "/usr/local/php$SELECTED_PHP_VERSION/php-fpm-checkconf"
     cp -v "$PHP_DIR/systemd/php-fpm.service" "/lib/systemd/system/php$SELECTED_PHP_VERSION-fpm.service"

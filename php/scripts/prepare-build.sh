@@ -12,7 +12,9 @@ fi
 
 cd src
 
-check_deps "build-essential git-core autoconf bison cmake pkg-config re2c" | dialog --title "Checking Dependencies" \
+PHP_DEPS+=("build-essential" "git" "autoconf" "bison" "cmake" "pkg-config" "re2c")
+
+check_deps  | dialog --title "Checking Dependencies" \
        --progressbox 20 100
 
 if [ ! -d php-src ]; then
@@ -75,5 +77,6 @@ PHP_INSTALLED=$(command -v "php$SELECTED_PHP_VERSION")
 
 PHP_VERSION="${LATEST_VERSION^^}"
 
-RESULT=$(git checkout --progress "$PHP_VERSION")
-infobox "\n$RESULT" 5 60
+dialog \
+    --title "Updating the System" \
+    --prgbox "git checkout --progress $PHP_VERSION" 20 100

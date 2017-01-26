@@ -26,7 +26,6 @@ check_version() {
 
 check_deps() {
     DEPS_TO_INSTALL=()
-    PHP_DEPS=($1)
 
     for dep in "${PHP_DEPS[@]}"; do
         DEP_INSTALLED=($(dpkg -l | grep -Po "$dep"))
