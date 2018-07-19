@@ -77,6 +77,9 @@ PHP_INSTALLED=$(command -v "php$SELECTED_PHP_VERSION")
 
 PHP_VERSION="${LATEST_VERSION^^}"
 
+git stash
+git stash drop
+
 dialog \
     --title "Updating the System" \
     --prgbox "git checkout --progress $PHP_VERSION" 20 100

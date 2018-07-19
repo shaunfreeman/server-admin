@@ -6,6 +6,6 @@
 # Summery: Bash Script to configure the Zip extension
 
 if [[ "${ENABLE_EXTS[@]}" =~ "zip" ]]; then
-    PHP_CONFIGURE_OPTIONS+=("--enable-zip")
+    PHP_CONFIGURE_OPTIONS+=("--enable-zip" "--with-libzip")
     PHP_DEPS+=("libzip-dev")
 fi

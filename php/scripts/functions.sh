@@ -5,7 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script for all functions
 
-PHP_SUPPORTED_VERSIONS=("7.1" "7.0" "5.6" "5.5")
+PHP_SUPPORTED_VERSIONS=("7.2" "7.1" "7.0" "5.6" "5.5")
 PHP_DEPS=()
 
 php_installed() {

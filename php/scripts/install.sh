@@ -49,3 +49,5 @@ source "$PHP_DIR/scripts/build.sh"
 
 systemctl daemon-reload
 systemctl enable "php$SELECTED_PHP_VERSION-fpm"
+
+source "$PHP_DIR/php-menu.sh"

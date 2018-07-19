@@ -63,7 +63,9 @@ case "$EXIT_STATUS" in
             4)
                 source "$PHP_DIR/scripts/edit-ini.sh"
                 ;;
-            5) source "$PHP_DIR/scripts/pools.sh"
+            5)
+                source "$PHP_DIR/scripts/pools.sh"
+                ;;
             esac
             ;;
     "$DIALOG_CANCEL" | "$DIALOG_ESC")

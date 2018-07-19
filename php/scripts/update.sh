@@ -2,7 +2,7 @@
 # Copyright (c) 2016 Shaun Freeman  All Rights Reserved
 # Author: Shaun Freeman <shaun@shaunfreeman.co.uk>
 # Date: 21/11/2016
-# Summery: Bash Script to Install, update and remove the lastest PHP
+# Summery: Bash Script to Install, update and remove the latest PHP
 
 BUILD_TYPE="update"
 COMPILE_PHP=0
@@ -14,9 +14,9 @@ CURRENT_VERSION=($("php$SELECTED_PHP_VERSION" -version | grep -Po "^PHP ([0-9]*.
 
 if [ "$CURRENT_VERSION" != "$PHP_VERSION" ]; then
     COMPILE_PHP=1
+
     RESULT=$(git checkout --progress "$PHP_VERSION")
     infobox "\n$RESULT" 5 60
-
     RESULT=$(git pull --progress)
     infobox "\n$RESULT" 5 60
 else

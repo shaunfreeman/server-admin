@@ -41,8 +41,8 @@ if [[ "${ENABLE_EXTS[@]}" =~ "gd" ]]; then
 
     dialog --defaultno --yesno "WebP for GD" 10 60
     if [ "$?" == 0 ]; then
-        PHP_CONFIGURE_OPTIONS+=("--with-webp-dir")
-        PHP_DEPS+=( "libwebp-dev")
+        PHP_CONFIGURE_OPTIONS+=(" --with-vpx-dir" "--with-webp-dir")
+        PHP_DEPS+=( "libwebp-dev" "libvpx-dev")
     fi
 
     dialog --defaultno --yesno "JIS-mapped Japanese Font Support for GD" 10 60
