@@ -36,12 +36,28 @@ source "$PHP_DIR/scripts/build.sh"
     sed -i "$REPLACE_STRING" "/lib/systemd/system/php$SELECTED_PHP_VERSION-fpm.service"
 
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/etc" "/etc/php/php$SELECTED_PHP_VERSION"
+
+    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/php" "/usr/local/bin/php$SELECTED_PHP_VERSION"
+    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phpdbg" "/usr/local/bin/phpdbg$SELECTED_PHP_VERSION"
+    ln -sv "/usr/local/php$SELECTED_PHP_VERSION/sbin/php-fpm" "/usr/local/sbin/php-fpm$SELECTED_PHP_VERSION"
+
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/pear" "/usr/local/bin/pear$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/peardev" "/usr/local/bin/peardev$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/pecl" "/usr/local/bin/pecl$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phar" "/usr/local/bin/phar$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/php-config" "/usr/local/bin/php-config$SELECTED_PHP_VERSION"
     ln -sv "/usr/local/php$SELECTED_PHP_VERSION/bin/phpize" "/usr/local/bin/phpize$SELECTED_PHP_VERSION"
+
+    chmod +x "/usr/local/bin/php$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/bin/phpdbg$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/sbin/php-fpm$SELECTED_PHP_VERSION"
+
+    chmod +x "/usr/local/bin/pear$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/bin/peardev$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/bin/pecl$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/bin/phar$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/bin/php-config$SELECTED_PHP_VERSION"
+    chmod +x "/usr/local/bin/phpize$SELECTED_PHP_VERSION"
 
 ) | dialog \
     --title "Installing PHP" \
