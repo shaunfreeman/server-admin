@@ -99,9 +99,9 @@ sapi_options() {
         --visit-items \
         --no-cancel \
         --buildlist "Select the PHP SAPIs you would like in this build" 40 70 30 \
-        cgi     "CGI"       on \
+        cgi     "CGI"       off \
         cli     "CLI"       on \
-        fpm     "FPM"       off \
+        fpm     "FPM"       on \
         phpdbg  "PHPDBG"    on \
         3>&1 1>&2 2>&3
     )

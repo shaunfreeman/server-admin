@@ -5,14 +5,14 @@
 # Version: 1.0.0
 # Summery: Bash Script to do simple server admin
 
-sudo dpkg -s dialog 2>/dev/null >/dev/null || sudo apt-get -y install dialog
-
 export NCURSES_NO_UTF8_ACS=1
 
 cd "$(dirname "$0")"
 
 SCRIPT=$(readlink -f "$0");
 ADMIN_DIR=$(pwd);
+
+dpkg -s dialog 2>/dev/null >/dev/null || sudo apt-get -y install dialog
 
 DIALOG=$(dialog)
 
