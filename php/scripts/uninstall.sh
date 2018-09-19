@@ -25,7 +25,7 @@ select_version
     rm -v "/usr/local/bin/phpize$SELECTED_PHP_VERSION"
     rm -v "/usr/local/sbin/php$SELECTED_PHP_VERSION-fpm"
 
-    rm -v "/etc/php/php$SELECTED_PHP_VERSION"
+    rm -v "/etc/php/$SELECTED_PHP_VERSION"
     rm -frv "/usr/local/php$SELECTED_PHP_VERSION"
 
     if [ -d "$PHP_DIR/src/php-src" ]; then

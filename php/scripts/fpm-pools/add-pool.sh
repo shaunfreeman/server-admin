@@ -38,9 +38,9 @@ case "$EXIT_STATUS" in
             sed -i "s@{LISTEN_OWNER}@${VALUES[3]}@" "$POOL_CONF"
             sed -i "s@{LISTEN_GROUP}@${VALUES[4]}@" "$POOL_CONF"
             systemctl restart "php$SELECTED_PHP_VERSION-fpm"
-            source "$PHP_DIR/scripts/pools.sh";
+            source "$PHP_DIR/php-menu.sh";
             ;;
     "$DIALOG_CANCEL" | "$DIALOG_ESC")
-        source "$PHP_DIR//php-menu.sh";
+        source "$PHP_DIR/php-menu.sh";
         ;;
 esac

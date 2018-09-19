@@ -6,7 +6,7 @@
 
 select_version
 
-INPUT="/etc/php/php$SELECTED_PHP_VERSION/php.ini"
+INPUT="/etc/php/$SELECTED_PHP_VERSION/php.ini"
 
 if [ ! -f "$INPUT" ]; then
     touch "$INPUT"
