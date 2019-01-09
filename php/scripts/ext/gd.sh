@@ -30,7 +30,7 @@ if [[ "${ENABLE_EXTS[@]}" =~ "gd" ]]; then
     dialog --defaultno --yesno "PNG for GD" 10 60
     if [ "$?" == 0 ]; then
         PHP_CONFIGURE_OPTIONS+=("--with-png-dir")
-        PHP_DEPS+=("libpng12-dev")
+        PHP_DEPS+=("libpng-dev")
     fi
 
     dialog --defaultno --yesno "XPM for GD" 10 60

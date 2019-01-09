@@ -7,5 +7,5 @@
 
 if [[ "${ENABLE_EXTS[@]}" =~ "openssl" ]]; then
     PHP_CONFIGURE_OPTIONS+=("--with-openssl")
-    PHP_DEPS+=("libssl-dev" "libsslcommon2-dev")
+    PHP_DEPS+=("libssl-dev")
 fi
