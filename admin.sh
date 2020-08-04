@@ -61,8 +61,6 @@ case "$EXIT_STATUS" in
                 display_result "System Information" "$RESULT";
                 ;;
             3)
-                #RESULT=$(sudo cat /var/lib/update-notifier/updates-available);
-                #display_result "Update Information" "$RESULT";
                 dialog \
                     --title "Updating the System" \
                     --prgbox "apt-get update && apt-get -y upgrade" 20 100

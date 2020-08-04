@@ -5,7 +5,7 @@
 # Version: 1.0.0
 # Summery: Bash Script for all functions
 
-PHP_SUPPORTED_VERSIONS=("7.3" "7.2" "7.1" "7.0" "5.6" "5.5")
+PHP_SUPPORTED_VERSIONS=("7.4" "7.3" "7.2")
 PHP_DEPS=()
 
 php_installed() {
@@ -121,53 +121,55 @@ extension_options() {
         --visit-items \
         --no-cancel \
         --buildlist "Select the PHP Extensions you would like in this build" 40 70 30 \
-        bcmath      "BCMath"                    off \
-        bzip2       "Bzip2"                     off \
-        calendar    "Calendar"                  off \
-        ctype       "Ctype"                     on \
-        curl        "Curl"                      off \
-        dom         "DOM"                       on \
-        exif        "Exif"                      off \
-        fileinfo    "FileInfo"                  on \
-        filter      "Filter"                    on \
-        ftp         "FTP"                       off \
-        gd          "GD"                        off \
-        gettext     "Gettext"                   off \
-        hash        "Hash"                      on \
-        iconv       "Iconv"                     on \
-        intl        "Intl"                      off \
-        json        "JSON"                      on \
-        libxml      "LibXML"                    on \
-        mbstring    "Mulibyte String"           off \
-        mcrypt      "Mcrypt"                    off \
-        mysql       "MySQL"                     off \
-        opcache     "OPcache"                   on \
-        openssl     "OpenSSL"                   off \
-        pdo         "PDO"                       on \
-        phar        "Phar"                      on \
-        posix       "POSIX"                     on \
-        pspell      "Pspell"                    off \
-        readline    "Readline"                  off \
-        recode      "Recode"                    off \
-        session     "Session"                   on \
-        simplexml   "SimpleXML"                 on \
-        snmp        "SNMP"                      off \
-        soap        "Soap"                      off \
-        sockets     "Sockets"                   off \
-        sqlite      "SQLite"                    on \
-        sysvmsg     "System V Messages"         off \
-        sysvsem     "System V Shared Memory"    off \
-        sysvshm     "System V Semaphore"        off \
-        tidy        "Tidy"                      off \
-        tokenizer   "Tokenizer"                 on \
-        wddx        "WDDX"                      off \
-        xml         "XML"                       on \
-        xmlreader   "XML Reader"                on \
-        xmlrpc      "XML-RPC"                   off \
-        xmlwriter   "XML Writer"                on \
-        xsl         "XSL"                       off \
-        zip         "Zip"                       off \
-        zlib        "Zlib"                      off \
+        bcmath          "BCMath"                    off \
+        bzip2           "Bzip2"                     off \
+        calendar        "Calendar"                  off \
+        ctype           "Ctype"                     on \
+        curl            "Curl"                      off \
+        dom             "DOM"                       on \
+        exif            "Exif"                      off \
+        fileinfo        "FileInfo"                  on \
+        filter          "Filter"                    on \
+        ftp             "FTP"                       off \
+        gd              "GD"                        off \
+        gettext         "Gettext"                   off \
+        hash            "Hash"                      on \
+        iconv           "Iconv"                     on \
+        intl            "Intl"                      off \
+        json            "JSON"                      on \
+        libxml          "LibXML"                    on \
+        mbstring        "Mulibyte String"           off \
+        mcrypt          "Mcrypt"                    off \
+        mysql           "MySQL"                     off \
+        opcache         "OPcache"                   on \
+        openssl         "OpenSSL"                   off \
+        password-argon2 "Password Argon 2"          on \
+        pdo             "PDO"                       on \
+        phar            "Phar"                      on \
+        posix           "POSIX"                     on \
+        pspell          "Pspell"                    off \
+        readline        "Readline"                  off \
+        recode          "Recode"                    off \
+        session         "Session"                   on \
+        simplexml       "SimpleXML"                 on \
+        snmp            "SNMP"                      off \
+        soap            "Soap"                      off \
+        sockets         "Sockets"                   off \
+        sodium          "Sodium"                    on \
+        sqlite          "SQLite"                    on \
+        sysvmsg         "System V Messages"         off \
+        sysvsem         "System V Shared Memory"    off \
+        sysvshm         "System V Semaphore"        off \
+        tidy            "Tidy"                      off \
+        tokenizer       "Tokenizer"                 on \
+        wddx            "WDDX"                      off \
+        xml             "XML"                       on \
+        xmlreader       "XML Reader"                on \
+        xmlrpc          "XML-RPC"                   off \
+        xmlwriter       "XML Writer"                on \
+        xsl             "XSL"                       off \
+        zip             "Zip"                       off \
+        zlib            "Zlib"                      off \
         3>&1 1>&2 2>&3
     )
 

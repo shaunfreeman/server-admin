@@ -21,7 +21,7 @@ if [[ ! "${ENABLE_EXTS[@]}" =~ "sqlite" ]]; then
     fi
 
 else
-
+    PHP_DEPS+=("libsqlite3-dev")
     dialog --defaultno --yesno "PDO SQLite" 10 60
     if [ "$?" == 1 ]; then
         PHP_CONFIGURE_OPTIONS+=("--without-pdo-sqlite")

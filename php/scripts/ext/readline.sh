@@ -6,6 +6,6 @@
 # Summery: Bash Script to configure the Readline extension
 
 if [[ "${ENABLE_EXTS[@]}" =~ "readline" ]]; then
-    PHP_CONFIGURE_OPTIONS+=("--with-readline")
-    PHP_DEPS+=("libreadline-dev")
+    PHP_CONFIGURE_OPTIONS+=("--with-readline" "--with-libedit")
+    PHP_DEPS+=("libreadline-dev" "libedit2" "libedit-dev")
 fi

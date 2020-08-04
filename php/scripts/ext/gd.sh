@@ -7,42 +7,58 @@
 
 if [[ "${ENABLE_EXTS[@]}" =~ "gd" ]]; then
 
-    PHP_CONFIGURE_OPTIONS+=("--with-gd")
-
-    # Not used in PHP 7.x
-    #ask_question "Tiff for GD [y/N]"
-    #if [ "$INSTALL_EXTENSION" == "y" ]; then
-    #    PHP_CONFIGURE_OPTIONS+=("--enable-gd-native-tiff")
-    #fi
+    if [ "$SELECTED_PHP_VERSION" == "7.4" ]; then
+      PHP_CONFIGURE_OPTIONS+=("--enable-gd")
+    else
+      PHP_CONFIGURE_OPTIONS+=("--with-gd")
+    fi
 
     dialog --defaultno --yesno "FreeType for GD" 10 60
     if [ "$?" == 0 ]; then
-        PHP_CONFIGURE_OPTIONS+=("--with-freetype-dir")
+       if [ "$SELECTED_PHP_VERSION" == "7.4" ]; then
+          PHP_CONFIGURE_OPTIONS+=("--with-freetype")
+        else
+          PHP_CONFIGURE_OPTIONS+=("--with-freetype-dir")
+        fi
         PHP_DEPS+=("libfreetype6" "libfreetype6-dev")
     fi
 
     dialog --defaultno --yesno "JPEG for GD" 10 60
     if [ "$?" == 0 ]; then
-        PHP_CONFIGURE_OPTIONS+=("--with-jpeg-dir")
+        if [ "$SELECTED_PHP_VERSION" == 7.4 ]; then
+          PHP_CONFIGURE_OPTIONS+=("--with-jpeg")
+        else
+          PHP_CONFIGURE_OPTIONS+=("--with-jpeg-dir")
+        fi
+
         PHP_DEPS+=("libjpeg-turbo8-dev")
     fi
 
-    dialog --defaultno --yesno "PNG for GD" 10 60
-    if [ "$?" == 0 ]; then
-        PHP_CONFIGURE_OPTIONS+=("--with-png-dir")
-        PHP_DEPS+=("libpng-dev")
+    if [ "$SELECTED_PHP_VERSION" != "7.4" ]; then
+      dialog --defaultno --yesno "PNG for GD" 10 60
+      if [ "$?" == 0 ]; then
+          PHP_CONFIGURE_OPTIONS+=("--with-png-dir")
+          PHP_DEPS+=("libpng-dev")
+      fi
     fi
 
     dialog --defaultno --yesno "XPM for GD" 10 60
     if [ "$?" == 0 ]; then
-        PHP_CONFIGURE_OPTIONS+=("--with-xpm-dir")
+        if [ "$SELECTED_PHP_VERSION" == "7.4" ]; then
+          PHP_CONFIGURE_OPTIONS+=("--with-xpm")
+        else
+          PHP_CONFIGURE_OPTIONS+=("--with-xpm-dir")
+        fi
+
         PHP_DEPS+=("libxpm-dev")
     fi
 
-    dialog --defaultno --yesno "WebP for GD" 10 60
-    if [ "$?" == 0 ]; then
-        PHP_CONFIGURE_OPTIONS+=(" --with-vpx-dir" "--with-webp-dir")
-        PHP_DEPS+=( "libwebp-dev" "libvpx-dev")
+    if [ "$SELECTED_PHP_VERSION" != "7.4" ]; then
+      dialog --defaultno --yesno "WebP for GD" 10 60
+      if [ "$?" == 0 ]; then
+          PHP_CONFIGURE_OPTIONS+=(" --with-vpx-dir" "--with-webp-dir")
+          PHP_DEPS+=( "libwebp-dev" "libvpx-dev")
+      fi
     fi
 
     dialog --defaultno --yesno "JIS-mapped Japanese Font Support for GD" 10 60
